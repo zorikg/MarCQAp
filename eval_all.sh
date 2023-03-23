@@ -45,11 +45,6 @@ do
   PREDS="${PREDICTIONS_DIR}/marcqap_${NAME}_quac.json"
 
   SIZE=$NAME
-#  if ["${NAME}" == "large"]; then
-#      SIZE = 'large'
-#  else
-#      SIZE = 'base'
-#  fi
 
   python "${TMP_DIR}/scorer.py" \
     --val_file="${DATA}" \
@@ -78,7 +73,7 @@ do
   PREDS="${PREDICTIONS_DIR}/marcqap_base_1.0_${DATASET}-${DOMAIN}.json"
   DATA="${DATA_DIR}/${DATASET}_dev_${DOMAIN}.json"
   python "${TMP_DIR}/scorer.py" --val_file="${DATA}" --model_output="${PREDS}" \
-     | grep "Overall F1: " | sed "s/Overall F1/MarCQAp Base ${DATASET} ${DOMAIN}/"
+     | grep "Overall F1: " | sed "s/Overall F1/MarCQAp base ${DATASET} ${DOMAIN}/"
 
 done
 
